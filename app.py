@@ -28,6 +28,11 @@ def main():
     return render_template("main.html")
 
 
+@app.route("/manage")
+def manage():
+    return render_template("manage.html")
+
+
 if __name__ == "__main__":
     app.run()
     # app.run(debug=True)
