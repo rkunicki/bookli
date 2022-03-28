@@ -88,6 +88,10 @@ def add_book():
     return render_template("error.html")
 
 
+@app.route("/books")
+def books_list():
+    return render_template("books.html")
+
 
 if __name__ == "__main__":
     app.run()
