@@ -30,35 +30,47 @@
     <section class="py-5">
         <div class="col-12 text-center">
             <br><br>
-            <h1 class="fw-light">dodaj nową książkę</h1>
-            <p class="lead">wybierz opcję poniżej</p>
+            <h1 class="fw-light">dodaj książkę ręcznie</h1>
+            <p class="lead">uzupełnij poniższy formularz</p>
         </div>
     </section>
 
     <!-- Form Add Books Manually -->
     <div class="container">
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">dodaj ręcznie</h5>
-                        <p class="card-text fw-lighter">dodaj dowolną książkę uzupełniając formularz</p>
-                        <a href="/add-manually" class="btn btn-dark">dodaj</a>
-                    </div>
-                </div>
+        <form class="row g-3" method="post" action="/success">
+            <div class="col-md-6">
+                <label class="form-label">Tytuł</label>
+                <input type="text" class="form-control" name="title" placeholder="Tytuł książki">
             </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">zaimportuj z Google Books</h5>
-                        <p class="card-text fw-lighter">dodaj książkę dostępną w Google Books</p>
-                        <a href="#" class="btn btn-dark">zaimportuj</a>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <label class="form-label">Autor</label>
+                <input type="text" class="form-control" name="author" placeholder="Autor książki">
             </div>
-            <div class="col-sm-2"></div>
-        </div>
+            <div class="col-md-5">
+                <label class="form-label">Data publikacji</label>
+                <input type="text" class="form-control" name="publishedDate" placeholder="format: YYYY-MM-DD">
+            </div>
+            <div class="col-md-5">
+                <label class="form-label">ISBN</label>
+                <input type="text" class="form-control" name="isbn" placeholder="Numer ISBN">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Liczba stron</label>
+                <input type="number" class="form-control" name="pageCount" placeholder="Liczba stron">
+            </div>
+            <div class="col-md-10">
+                <label class="form-label">Link do okładki</label>
+                <input type="url" class="form-control" name="imageLink" placeholder="http://example.com/">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Język publikacji</label>
+                <input type="text" class="form-control" name="language" placeholder="format: PL">
+            </div>
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <br>
+                <button type="submit" class="btn btn-dark">dodaj</button>
+            </div>
+        </form>
     </div>
 
     <!-- Footer -->

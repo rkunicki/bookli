@@ -44,6 +44,11 @@ def manage():
     return render_template("manage.html")
 
 
+@app.route("/add-manually")
+def add_manually():
+    return render_template("add-manually.html")
+
+
 @app.route("/success", methods=["POST", "GET"])
 def add_book():
     title = request.form.get("title")
