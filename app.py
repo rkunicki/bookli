@@ -90,7 +90,8 @@ def add_book():
 
 @app.route("/books")
 def books_list():
-    return render_template("books.html")
+    books = db.session.query(Books).all()
+    return render_template("books.html", books=books)
 
 
 if __name__ == "__main__":
