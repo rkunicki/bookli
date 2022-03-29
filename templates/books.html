@@ -15,10 +15,56 @@
 
     <!-- Table with books -->
     <div class="container">
-        <center><h4>/ Tu będzie tabela /</h4></center>
-        {% for book in books %}
-        {{ book.title }}
-        {% endfor %}
+<!--        {% for book in books %}-->
+<!--        {{ book.title }}-->
+<!--        {% endfor %}-->
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">lp.</th>
+                    <th scope="col">tytuł</th>
+                    <th scope="col">autor</th>
+                    <th scope="col">rok</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">strony</th>
+                    <th scope="col">okładka</th>
+                    <th scope="col">język</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                <tr>
+                    <th scope="row">{{ book.id }}</th>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.publishedDate.strftime('%Y') }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.pageCount }}</td>
+                    <td><a href="{{ book.imageLink }}" class="text-muted">zobacz</a></td>
+                    <td>{{ book.language }}</td>
+                </tr>
+                {% endfor %}
+<!--                <tr>-->
+<!--                    <th scope="row"></th>-->
+<!--                    <td>Mark</td>-->
+<!--                    <td>Otto</td>-->
+<!--                    <td>@mdo</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th scope="row">2</th>-->
+<!--                    <td>Jacob</td>-->
+<!--                    <td>Thornton</td>-->
+<!--                    <td>@fat</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th scope="row">3</th>-->
+<!--                    <td colspan="2">Larry the Bird</td>-->
+<!--                    <td>@twitter</td>-->
+<!--                </tr>-->
+                </tbody>
+            </table>
+        </div>
     </div>
 
 {% endblock %}
