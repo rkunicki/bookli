@@ -13,11 +13,34 @@
         </div>
     </section>
 
+    <!-- Search Form -->
+        <div class="container">
+            <form class="row g-3" method="post" action="/books">
+                <div class="col-md-4">
+                    <label class="form-label fw-lighter">tytuł</label>
+                    <input type="text" class="form-control fw-lighter" name="title" placeholder="tytuł książki">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-lighter">autor</label>
+                    <input type="text" class="form-control fw-lighter" name="author" placeholder="autor książki">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-lighter">rok publikacji</label>
+                    <input type="number" class="form-control fw-lighter" name="publishedDate" placeholder="format: YYYY-YYYY">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-lighter">język publikacji</label>
+                    <input type="url" class="form-control fw-lighter" name="language" placeholder="format: PL">
+                </div>
+                <div class="d-grid gap-2 col-4 mx-auto">
+                    <button type="submit" class="btn btn-dark">wyszukaj</button>
+                </div>
+            </form>
+            <br><br><br>
+        </div>
+
     <!-- Table with books -->
     <div class="container">
-<!--        {% for book in books %}-->
-<!--        {{ book.title }}-->
-<!--        {% endfor %}-->
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
@@ -45,23 +68,6 @@
                     <td>{{ book.language }}</td>
                 </tr>
                 {% endfor %}
-<!--                <tr>-->
-<!--                    <th scope="row"></th>-->
-<!--                    <td>Mark</td>-->
-<!--                    <td>Otto</td>-->
-<!--                    <td>@mdo</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <th scope="row">2</th>-->
-<!--                    <td>Jacob</td>-->
-<!--                    <td>Thornton</td>-->
-<!--                    <td>@fat</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <th scope="row">3</th>-->
-<!--                    <td colspan="2">Larry the Bird</td>-->
-<!--                    <td>@twitter</td>-->
-<!--                </tr>-->
                 </tbody>
             </table>
         </div>

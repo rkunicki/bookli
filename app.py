@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -90,6 +90,15 @@ def add_book():
 
 @app.route("/books")
 def books_list():
+    # title = request.form.get("title")
+    # author = request.form.get("author")
+    # published_date = request.form.get("publishedDate")
+    # language = request.form.get("language")
+
+    # if title:
+    #     books = db.session.query(Books).filter(Books.title == title).all()
+    #     return render_template("books.html", books=books)
+
     books = db.session.query(Books).all()
     return render_template("books.html", books=books)
 
