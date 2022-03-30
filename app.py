@@ -59,7 +59,11 @@ def add_book():
     image_link = request.form.get("imageLink")
     language = request.form.get("language")
 
-    if isbn == None or len(isbn) > 13:
+    # if isbn == None:
+    #     print("Błąd! ISBN powinien składać się z 10 lub 13 cyfr")
+    #     return render_template("error-isbn.html")
+
+    if len(isbn) != 10 and len(isbn) != 13:
         print("Błąd! ISBN powinien składać się z 10 lub 13 cyfr")
         return render_template("error-isbn.html")
 
