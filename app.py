@@ -16,8 +16,8 @@ class Books(db.Model):
     author = db.Column(db.String(120), unique=False, nullable=False)
     publishedDate = db.Column(db.DateTime, unique=False, nullable=False)
     isbn = db.Column(db.String(13), unique=True, nullable=False)
-    pageCount = db.Column(db.Integer, unique=False, nullable=False)
-    imageLink = db.Column(db.String(240), unique=True, nullable=False)
+    pageCount = db.Column(db.Integer, unique=False, nullable=True)
+    imageLink = db.Column(db.String(240), unique=False, nullable=True)
     language = db.Column(db.String(20), unique=False, nullable=False)
 
 
@@ -59,13 +59,13 @@ def add_book():
     image_link = request.form.get("imageLink")
     language = request.form.get("language")
 
-    if len(isbn) > 13:
+    if isbn == None or len(isbn) > 13:
         print("Błąd! ISBN powinien składać się z 10 lub 13 cyfr")
         return render_template("error-isbn.html")
 
     database = db.session.query(Books).all()
     all_books = [row.isbn for row in database]  # List of all books title from database by use comprehensive list
-    if title and author and published_date and isbn and page_count and image_link and language:
+    if title and author and published_date and isbn and language:
 
         published_date = try_parsing_date(published_date)
 
@@ -90,14 +90,14 @@ def add_book():
 
 @app.route("/books")
 def books_list():
-    # title = request.form.get("title")
-    # author = request.form.get("author")
-    # published_date = request.form.get("publishedDate")
-    # language = request.form.get("language")
+    title = request.form.get("title")
+    author = request.form.get("author")
+    published_date = request.form.get("publishedDate")
+    language = request.form.get("language")
 
-    # if title:
-    #     books = db.session.query(Books).filter(Books.title == title).all()
-    #     return render_template("books.html", books=books)
+    if title:
+        books = db.session.query(Books).filter(Books.title == title).all()
+        return render_template("books.html", books=books)
 
     books = db.session.query(Books).all()
     return render_template("books.html", books=books)

@@ -1,10 +1,25 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
-<h1>Sukces</h1>
+{% block content %}
+
+    <!-- Vertically Centered Slogan -->
+    <section class="py-5">
+        <div class="col-12 text-center">
+            <br><br>
+            <h1 class="fw-light">książka dodana</h1>
+            <p class="lead">co chcesz teraz zrobić?</p>
+        </div>
+    </section>
+
+    <!-- Main buttons -->
+    <div class="d-grid gap-2 col-4 mx-auto">
+        <a class="btn btn-outline-dark" href="/add-manually" role="button">dodaj następną</a>
+        <a class="btn btn-outline-dark" href="" role="button">zaimportuj następną</a>
+        <a class="btn btn-outline-dark" href="/books" role="button">zobacz listę książek</a>
+    </div>
+
+{% endblock %}
 </body>
 </html>

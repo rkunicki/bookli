@@ -64,7 +64,13 @@
                     <td>{{ book.publishedDate.strftime('%Y') }}</td>
                     <td>{{ book.isbn }}</td>
                     <td>{{ book.pageCount }}</td>
-                    <td><a href="{{ book.imageLink }}" class="text-muted">zobacz</a></td>
+                    <td>
+                        {% if book.imageLink %}
+                            <a href="{{ book.imageLink }}" class="text-muted">zobacz</a>
+                        {% else %}
+                        &nbsp;
+                        {% endif %}
+                    </td>
                     <td>{{ book.language }}</td>
                 </tr>
                 {% endfor %}

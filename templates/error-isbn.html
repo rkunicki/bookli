@@ -1,10 +1,24 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
-<h1>Błąd! ISBN powinien składać się z 10 lub 13 cyfr</h1>
+{% block content %}
+
+    <!-- Vertically Centered Slogan -->
+    <section class="py-5">
+        <div class="col-12 text-center">
+            <br><br>
+            <h1 class="fw-light text-danger">błąd ISBN!</h1>
+            <p class="lead text-danger">ISBN powinien składać się z 10 lub 13 cyfr</p>
+        </div>
+    </section>
+
+    <!-- Main buttons -->
+    <div class="d-grid gap-2 col-4 mx-auto">
+        <a class="btn btn-outline-dark" href="/add-manually" role="button">wróć</a>
+        <a class="btn btn-outline-dark" href="/books" role="button">lista książek</a>
+    </div>
+
+{% endblock %}
 </body>
 </html>

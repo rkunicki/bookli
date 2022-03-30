@@ -17,20 +17,20 @@
     <div class="container">
         <form class="row g-3" method="post" action="/success">
             <div class="col-md-6">
-                <label class="form-label">Tytuł</label>
-                <input type="text" class="form-control" name="title" placeholder="Tytuł książki">
+                <label for="validationDefault01" class="form-label">Tytuł</label>
+                <input type="text" class="form-control" id="validationDefault01" name="title" placeholder="Tytuł książki" required>
             </div>
             <div class="col-md-6">
-                <label class="form-label">Autor</label>
-                <input type="text" class="form-control" name="author" placeholder="Autor książki">
+                <label for="validationDefault02" class="form-label">Autor</label>
+                <input type="text" class="form-control" id="validationDefault02" name="author" placeholder="Autor książki" required>
             </div>
             <div class="col-md-5">
-                <label class="form-label">Data publikacji</label>
-                <input type="text" class="form-control" name="publishedDate" placeholder="format: YYYY-MM-DD">
+                <label for="validationDefault03" class="form-label">Data publikacji</label>
+                <input type="text" class="form-control" id="validationDefault03" name="publishedDate" placeholder="format: YYYY-MM-DD" required>
             </div>
             <div class="col-md-5">
-                <label class="form-label">ISBN</label>
-                <input type="text" class="form-control" name="isbn" placeholder="Numer ISBN">
+                <label for="validationDefault04" class="form-label">ISBN</label>
+                <input type="text" class="form-control" id="validationDefault04" name="isbn" placeholder="Numer ISBN" required>
             </div>
             <div class="col-md-2">
                 <label class="form-label">Liczba stron</label>
@@ -41,8 +41,8 @@
                 <input type="url" class="form-control" name="imageLink" placeholder="http://example.com/">
             </div>
             <div class="col-md-2">
-                <label class="form-label">Język publikacji</label>
-                <input type="text" class="form-control" name="language" placeholder="format: PL">
+                <label for="validationDefault05" class="form-label">Język publikacji</label>
+                <input type="text" class="form-control" id="validationDefault05" name="language" placeholder="format: PL" required>
             </div>
             <div class="d-grid gap-2 col-4 mx-auto">
                 <br>
