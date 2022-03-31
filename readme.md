@@ -1,4 +1,4 @@
-This is temporary readme file. In near future will be upgraded to professional one.
+This is a temporary readme file. In the near future will be upgraded to professional one.
 
 Main informations:
 1. bookli is a web application to manage books: manually and by import from Google Books API
