@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+<html lang="en">
+<body>
+{% block content %}
+
+    <!-- Vertically Centered Text -->
+    <section class="py-5">
+        <div class="col-12 text-center">
+            <br><br>
+            <h1 class="fw-light">zaimportuj książkę z Google Books</h1>
+            <p class="lead">skorzystaj z formularza poniżej</p>
+        </div>
+    </section>
+
+    <!-- Form Add Books from API -->
+    <div class="container">
+        <form class="row g-3" method="get" action="">
+            <div class="col-md-6">
+                <label class="form-label">Tytuł</label>
+                <input type="text" class="form-control" name="title" placeholder="Tytuł książki" required>
+            </div>
+            <div class="col-md-6">
+                <label for="validationDefault02" class="form-label">Autor</label>
+                <input type="text" class="form-control" id="validationDefault02" name="author" placeholder="Autor książki" required>
+            </div>
+            <div class="col-md-5">
+                <label for="validationDefault03" class="form-label">Data publikacji</label>
+                <input type="text" class="form-control" id="validationDefault03" name="publishedDate" placeholder="format: YYYY-MM-DD" required>
+            </div>
+            <div class="col-md-5">
+                <label for="validationDefault04" class="form-label">ISBN</label>
+                <input type="text" class="form-control" id="validationDefault04" name="isbn" placeholder="Numer ISBN" required>
+            </div>
+            <div class="col-md-2">
+                <label for="validationDefault05" class="form-label">Język publikacji</label>
+                <input type="text" class="form-control" id="validationDefault05" name="language" placeholder="format: PL" required>
+            </div>
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <br>
+                <button type="submit" class="btn btn-dark">szukaj</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+</body>
+</html>

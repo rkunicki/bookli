@@ -49,6 +49,11 @@ def add_manually():
     return render_template("add-manually.html")
 
 
+@app.route("/add-api")
+def add_api():
+    return render_template("add-api.html")
+
+
 @app.route("/success", methods=["POST", "GET"])
 def add_book():
     title = request.form.get("title")
