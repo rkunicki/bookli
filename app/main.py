@@ -107,19 +107,19 @@ def add_book():
 def books_list():
     books = db.session.query(Books).all()
     if request.method == 'POST':
-        title = request.form.get("title")
-        author = request.form.get("author")
+        title = request.form.get("title").lower()
+        author = request.form.get("author").lower()
         published_date = request.form.get("publishedDate")
-        language = request.form.get("language")
+        language = request.form.get("language").lower()
         books_filtered = books
         if title:
-            books_filtered = [book for book in books_filtered if title in book.title]
+            books_filtered = [book for book in books_filtered if title in book.title.lower()]
         if author:
-            books_filtered = [book for book in books_filtered if author in book.author]
+            books_filtered = [book for book in books_filtered if author in book.author.lower()]
         if published_date:
             books_filtered = [book for book in books_filtered if published_date in book.publishedDate.strftime('%Y')]
         if language:
-            books_filtered = [book for book in books_filtered if language in book.language]
+            books_filtered = [book for book in books_filtered if language in book.language.lower()]
         return render_template("books.html", books=books_filtered)
     return render_template("books.html", books=books)
 
