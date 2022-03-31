@@ -1,12 +1,17 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from datetime import datetime
+
+DATABASE_URL = os.environ['DATABASE_URL']
 
 app = Flask(__name__, template_folder="templates")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///books.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL.replace("postgres", "postgresql")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 # Create a table in the database
@@ -111,7 +116,3 @@ def books_list():
     books = db.session.query(Books).all()
     return render_template("books.html", books=books)
 
-
-if __name__ == "__main__":
-    app.run()
-    # app.run(debug=True)
