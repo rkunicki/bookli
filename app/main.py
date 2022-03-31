@@ -1,9 +1,9 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
-from app.helper import create_query
+from app.helper import read_api, create_query
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
@@ -53,11 +53,6 @@ def manage():
 @app.route("/add-manually")
 def add_manually():
     return render_template("add-manually.html")
-
-
-@app.route("/add-api")
-def add_api():
-    return render_template("add-api.html")
 
 
 @app.route("/success", methods=["POST", "GET"])
@@ -127,4 +122,10 @@ def books_list():
 @app.route("/temp", methods=["POST", "GET"])
 def temp():
     query = create_query(request.form)
+    # out = read_api(query)
     return query
+
+
+@app.route("/add-api", methods=["POST", "GET"])
+def add_api():
+    return render_template("add-api.html")
