@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
+from app.helper import create_query
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
@@ -102,17 +103,28 @@ def add_book():
     return render_template("error.html")
 
 
-@app.route("/books")
+@app.route("/books", methods=["POST", "GET"])
 def books_list():
-    title = request.form.get("title")
-    author = request.form.get("author")
-    published_date = request.form.get("publishedDate")
-    language = request.form.get("language")
-
-    if title:
-        books = db.session.query(Books).filter(Books.title == title).all()
-        return render_template("books.html", books=books)
-
     books = db.session.query(Books).all()
+    if request.method == 'POST':
+        title = request.form.get("title")
+        author = request.form.get("author")
+        published_date = request.form.get("publishedDate")
+        language = request.form.get("language")
+        books_filtered = books
+        if title:
+            books_filtered = [book for book in books_filtered if title in book.title]
+        if author:
+            books_filtered = [book for book in books_filtered if author in book.author]
+        if published_date:
+            books_filtered = [book for book in books_filtered if published_date in book.publishedDate.strftime('%Y')]
+        if language:
+            books_filtered = [book for book in books_filtered if language in book.language]
+        return render_template("books.html", books=books_filtered)
     return render_template("books.html", books=books)
 
+
+@app.route("/temp", methods=["POST", "GET"])
+def temp():
+    query = create_query(request.form)
+    return query

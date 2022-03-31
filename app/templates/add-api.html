@@ -15,26 +15,26 @@
 
     <!-- Form Add Books from API -->
     <div class="container">
-        <form class="row g-3" method="get" action="">
+        <form class="row g-3" method="post" action="/temp">
             <div class="col-md-6">
                 <label class="form-label">Tytuł</label>
-                <input type="text" class="form-control" name="title" placeholder="Tytuł książki" required>
+                <input type="text" class="form-control" name="intitle" placeholder="Tytuł książki">
             </div>
             <div class="col-md-6">
-                <label for="validationDefault02" class="form-label">Autor</label>
-                <input type="text" class="form-control" id="validationDefault02" name="author" placeholder="Autor książki" required>
+                <label class="form-label">Autor</label>
+                <input type="text" class="form-control" name="inauthor" placeholder="Autor książki">
             </div>
             <div class="col-md-5">
-                <label for="validationDefault03" class="form-label">Data publikacji</label>
-                <input type="text" class="form-control" id="validationDefault03" name="publishedDate" placeholder="format: YYYY-MM-DD" required>
+                <label class="form-label">Data publikacji</label>
+                <input type="text" class="form-control" name="publishedDate" placeholder="format: YYYY-MM-DD">
             </div>
             <div class="col-md-5">
-                <label for="validationDefault04" class="form-label">ISBN</label>
-                <input type="text" class="form-control" id="validationDefault04" name="isbn" placeholder="Numer ISBN" required>
+                <label class="form-label">ISBN</label>
+                <input type="text" class="form-control" name="isbn" placeholder="Numer ISBN">
             </div>
             <div class="col-md-2">
-                <label for="validationDefault05" class="form-label">Język publikacji</label>
-                <input type="text" class="form-control" id="validationDefault05" name="language" placeholder="format: PL" required>
+                <label class="form-label">Język publikacji</label>
+                <input type="text" class="form-control" name="language" placeholder="format: PL">
             </div>
             <div class="d-grid gap-2 col-4 mx-auto">
                 <br>
