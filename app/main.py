@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from datetime import datetime
-from app.helper import read_api, create_query
+from app.helper import read_api, create_query, transform_data
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
@@ -119,13 +119,20 @@ def books_list():
     return render_template("books.html", books=books)
 
 
-@app.route("/temp", methods=["POST", "GET"])
-def temp():
-    query = create_query(request.form)
-    # out = read_api(query)
-    return query
+# @app.route("/temp", methods=["POST", "GET"])
+# def temp():
+#     query = create_query(request.form)
+#     out = read_api(query)
+#     print(out.get('items'))
+#     print(out.keys())
+#     return out
 
 
 @app.route("/add-api", methods=["POST", "GET"])
 def add_api():
-    return render_template("add-api.html")
+    books = []
+    if request.method == 'POST':
+        query = create_query(request.form)
+        out = read_api(query)
+        books = transform_data(out)
+    return render_template("add-api.html", books=books)

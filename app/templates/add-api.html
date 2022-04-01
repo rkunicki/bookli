@@ -15,7 +15,7 @@
 
     <!-- Form Add Books from API -->
     <div class="container">
-        <form class="row g-3" method="post" action="/temp">
+        <form class="row g-3" method="post" action="/add-api">
             <div class="col-md-5">
                 <label class="form-label">Tytuł</label>
                 <input type="text" class="form-control" name="intitle" placeholder="Tytuł książki">
@@ -55,10 +55,10 @@
                     <tbody>
                     {% for book in books %}
                     <tr>
-                        <th scope="row">{{ book.id }}</th>
+                        <th scope="row">{{ loop.index }}</th>
                         <td>{{ book.title }}</td>
                         <td>{{ book.author }}</td>
-                        <td>{{ book.publishedDate.strftime('%Y') }}</td>
+                        <td>{{ book.publishedDate }}</td>
                         <td>{{ book.isbn }}</td>
                         <td>{{ book.pageCount }}</td>
                         <td>
