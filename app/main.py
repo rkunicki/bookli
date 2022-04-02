@@ -121,11 +121,15 @@ def books_list():
 
 # @app.route("/temp", methods=["POST", "GET"])
 # def temp():
-#     query = create_query(request.form)
-#     out = read_api(query)
-#     print(out.get('items'))
-#     print(out.keys())
-#     return out
+#     if request.method == 'POST':
+#         book = request.form.get("book")
+#         return book
+#     return 'nic'
+    # query = create_query(request.form)
+    # out = read_api(query)
+    # print(out.get('items'))
+    # print(out.keys())
+    # return out
 
 
 @app.route("/add-api", methods=["POST", "GET"])
@@ -136,3 +140,7 @@ def add_api():
         out = read_api(query)
         books = transform_data(out)
     return render_template("add-api.html", books=books)
+
+
+# @app.route("/added-api", methods=["POST", "GET"])
+# def added_api():

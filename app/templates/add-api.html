@@ -50,6 +50,7 @@
                         <th scope="col">strony</th>
                         <th scope="col">okładka</th>
                         <th scope="col">język</th>
+<!--                        <th scope="col">dodaj</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -69,6 +70,12 @@
                             {% endif %}
                         </td>
                         <td>{{ book.language }}</td>
+<!--                        <td>-->
+<!--                            <form method="post" action="/temp">-->
+<!--                                <input type="hidden" name="book" value={{loop.index}}>-->
+<!--                                <button type="submit">+</button>-->
+<!--                            </form>-->
+<!--                        </td>-->
                     </tr>
                     {% endfor %}
                     </tbody>
